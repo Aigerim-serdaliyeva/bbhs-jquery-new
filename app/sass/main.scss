@@ -1,0 +1,275 @@
+@import './base';
+
+html, body {
+	margin: 0;
+}
+
+body {
+	min-width: 320px;
+	position: relative;
+	color: $text_color;
+	line-height: 1.2;
+	font-size: $font_size;
+  font-weight: normal;
+  font-family: $default_family;
+  overflow-x: auto;
+  opacity: 1;
+}
+
+.page-top {
+	position: fixed;
+	bottom: 20px;
+	right: -100px;
+	z-index: 99;
+	cursor: pointer;
+	@include circle(50px);
+	background-color: $accent;
+	font-size: 25px;
+	color: #ffffff;
+	opacity: .3;
+	transition: all .5s ease-out;	
+
+	&.active {		
+		right: 20px;			
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.call-me {
+  position: fixed;
+	bottom: 20px;
+	left: 20px;
+	z-index: 99;
+	cursor: pointer;
+  @include circle(50px);
+  background-color: #58ea00;
+  cursor: pointer;
+  display: none;
+
+  .fa {
+    color: #fff;
+    font-size: 25px;
+    position: relative;
+    top: 5px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 1px solid #58ea00;
+    border-radius: 50%;
+    animation: pulse 1.5s linear infinite;
+  }
+
+  &:after {
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.page-wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 98;
+  padding: 10px 0;
+  background-color: rgba(#fff, 0.7);
+
+  &.scrolled {
+    background-color: rgba(#fff, 1);      
+    border-bottom: 1px solid $accent;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;      
+  }
+
+  .grow {
+    display: none;
+  }
+}
+
+.footer {
+  background-color: $accent;
+  font-size: 16px;
+
+  .logo {
+    margin-right: 100px;
+  }
+
+  &-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  &-address {
+    max-width: 165px;
+    margin-right: 40px;
+  }
+
+  &-phone {
+    margin-right: 55px;
+  }
+
+  &-comand {
+    margin-left: 100px;
+  }   
+}
+
+.main-menu {    
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  li {
+    margin-right: 28px;
+  }
+
+  a {
+    display: inline-block;
+    line-height: 1.5;
+    text-decoration: none;
+    font-weight: normal;
+    border-bottom: 2px solid transparent;
+
+    &.link:hover, &.active {
+        border-bottom: 2px solid $accent;
+    }
+  }
+}
+
+.section {
+  padding: 40px 0 35px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+
+  &-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 auto 40px;
+    text-align: center;
+
+    .inverse & {
+      color: #fff;
+    }
+  }
+
+  &-main {
+    padding-top: 150px;
+    background-image: url('../img/main-back.jpg');
+
+    &-title {
+      font-size: 39px;
+      margin: 0 0 35px 0;
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+
+}
+
+
+
+#thanks-page {   
+
+  .section-thanks {
+    padding: 200px 0 0 0;
+    background-image: url('../img/thanks-back.jpg');
+    flex-grow: 1;
+  
+    &-content {
+      display: flex;
+      justify-content: space-between;   
+      margin-left: 90px;      
+    }
+    
+    &-title {
+      font-size: 42px;
+      margin-bottom: 40px;
+    }
+
+    &-text {
+      font-size: 30px;
+      margin: 0 0 60px;
+    }
+  
+    &-link {
+      text-decoration: underline;
+      font-size: 18px;
+      display: inline-block;
+      margin-bottom: 150px;
+    }
+  }
+}
+
+
+.modal {
+  text-align: center;
+
+  &-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  form {
+    margin: 0 auto;
+    width: 300px;
+  }
+
+  .form-info {
+    text-align: left;
+    letter-spacing: 0;
+  }
+
+  .input-div {
+    margin-bottom: 10px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+
+
+@import './_media';

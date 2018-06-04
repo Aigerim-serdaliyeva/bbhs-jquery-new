@@ -1,0 +1,124 @@
+@import '../../node_modules/bootstrap-grid/dist/grid.min';
+@import '../../node_modules/remodal/dist/remodal';
+@import '../../node_modules/remodal/dist/remodal-default-theme';
+@import '../../node_modules/owl.carousel/dist/assets/owl.carousel.min';
+@import '../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min';
+@import '../../node_modules/hamburgers/dist/hamburgers.min';
+@import '../../node_modules/font-awesome/css/font-awesome.min';
+@import './_vars';
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome/fontawesome-webfont.eot?v=4.7.0');
+    src: url('../fonts/fontawesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), 
+         url('../fonts/fontawesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), 
+         url('../fonts/fontawesome/fontawesome-webfont.woff?v=4.7.0') format('woff'), 
+         url('../fonts/fontawesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), 
+         url('../fonts/fontawesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+}
+
+.owl-carousel {
+	.owl {
+    &-item {
+      img {
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+
+		&-prev, &-next {
+			position: absolute;
+			top: 50%;
+			width: 44px;
+      height: 70px;
+      background-image: url('../img/arrow-left.png') !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      margin-top: -43.5px;
+      outline: 0;
+      z-index: 10;
+		}
+
+		&-prev {
+      left: 0px;
+		}
+
+		&-next {
+      right: 0px;
+      background-image: url('../img/arrow-right.png') !important;
+    }
+
+    &-dots {
+      position: relative;
+      text-align: center;
+    }
+    
+    &-dot {
+      width: 16px;
+      height: 16px;
+      background: transparent !important;
+      margin: 0 5px;
+      border: 3px solid $accent !important;
+      border-radius: 50%;
+
+      &.active {
+        background: $accent !important;
+      } 
+    }
+	}
+}
+
+.remodal {
+  text-align: left;
+  color: $text_color;
+
+  &-close {
+    left: auto;
+    right: 0;
+    color: $text_color;
+    &:before {
+      font-size: 35px;
+    }
+  }
+
+  &.remodal-small {
+    max-width: 400px;
+    padding: 60px 25px;
+  }
+}
+
+.hamburger {
+  background-color: #fff;
+  padding: 10px;
+	line-height: 0;
+	    
+  &-box {
+    width: 30px;
+  }
+
+  &-inner {
+    &, &:after, &:before {            
+      border-radius: 0;
+      width: 100%;
+      height: 2px;        
+    }
+
+    & {
+      margin-top: -1px;
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &:after {
+      bottom: -7px;
+    }
+  }
+}
+
+@media only screen and (min-width: 641px) {
+  .remodal {
+    max-width: 80%;
+  }
+}

@@ -1,0 +1,212 @@
+
+/* Medium Devices, Desktops */
+.visible-xxs {
+    display: none !important;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1199px) {
+
+}
+
+@media only screen and (max-width : 991px) {	
+
+  .hamburger {
+    display: block;
+  }    
+
+  .header {
+    padding: 5px 0;
+  }
+
+  .footer {
+    text-align: center;
+
+    &-content {
+      flex-direction: column;
+
+      & > * {
+          margin: 0 0 20px 0 !important;            
+      }
+    }
+  }
+
+	.main-menu {
+    display: none;
+    background-color: #fff;
+    position: fixed;
+    top: 89px;
+    left: 0;
+    right: 0;
+    text-align: left;
+    margin-left: 0;
+    z-index: 98;
+    padding: 10px 0;
+
+		ul {
+			display: block;
+			height: auto;
+      padding: 0;
+      margin: 0;
+
+			li {
+        margin: 0 0 5px;
+
+        &:last-child {
+          margin: 0;
+        }
+			}
+		}
+  }
+    
+
+  .section {
+    
+  }
+
+
+  #thanks-page {
+    .section-thanks {
+      padding: 130px 0 30px;
+      
+      &-content {
+        margin-left: 0;
+      }
+
+      &-title {
+        margin-bottom: 20px;
+      }
+
+      &-text {
+        margin-bottom: 20px;
+        font-size: 26px;
+      }
+
+      &-link {
+        font-size: 16px;
+        margin-bottom: 70px;
+      }
+    }
+  }
+
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+
+  .logo {
+    max-width: 200px;
+  }
+
+  .header {
+    .grow {
+      display: block;
+    }
+  }
+
+  .section {
+    &-title {
+      font-size: 24px;
+    }
+
+    &-main {
+      
+    }    
+  }
+}
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 479px) {
+
+  .call-me {
+    display: block;
+  }
+
+  .remodal {
+    .modal-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    form {
+      width: auto;
+    }
+
+    &.remodal-small {
+      padding: 20px 10px;
+    }
+  }
+
+	.col-xxs-12 {
+		width: 100%;
+	}
+
+	.col-xxs-offset-0 {
+		margin-left: 0;
+  }
+    
+  .visible-xxs {
+    display: block !important;
+  }
+
+	.hidden-xxs {
+		display: none !important;
+  }
+
+  .header {
+    .button {
+      display: none;
+    }
+  }
+
+  .section {
+
+  }
+
+  .modal {
+    &-title {
+      font-size: 20px;
+    }
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.main-menu {
+		.container {
+			width: auto;
+			padding: 0;
+		}
+  }  
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	
+}
+
+@media only screen and (min-width : 1920px) {
+
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="shortcut icon" href="img/favicon.ico?v=10" type="image/x-icon">
+
+  <style>
+    body { opacity: 0; overflow-x: hidden; }
+    html { background-color: #fff; }
+  </style>
+</head>
+
+<body id="thanks-page">
+
+  <div class="page-wrapper">
+
+    <div class="page-top"><i class="fa fa-angle-double-up"></i></div>
+    <a href="tel:+77789972630" id="callMe" class="call-me">
+      <i class="fa fa-phone"></i>
+    </a>
+
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="logo">
+            <img src="./img/logo.png" alt="">
+          </a>
+
+          <div class="grow"></div>
+
+          <h3 class="header-title">
+          </h3>
+
+          <div class="header-phone hidden-xxs">
+            <a href="tel:+" class="text-phone">+ 7 (727) 317- 01-64</a>
+            <a href="tel:+" class="text-phone">+ 7 (778) 997-26-30</a>
+          </div>
+
+          <a href="#" class="button" data-remodal-target="zvonok-modal">Заказать звонок</a>
+
+          <button class="hamburger hamburger--elastic hamburger--accessible">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
+
+        <nav class="main-menu">
+          <div class="container">
+            <ul>
+              <li>
+                <a class="link" href="#quarantee">Гарантии</a>
+              </li>
+              <li>
+                <a class="link" href="#praktika">Успешная практика</a>
+              </li>
+              <li>
+                <a class="link" href="#why">Выгоды для клиентов</a>
+              </li>
+              <li>
+                <a class="link" href="#sfera">Услуги</a>
+              </li>
+              <li>
+                <a class="link" href="#osnovatel">Основатель конторы</a>
+              </li>
+              <li>
+                <a class="link" href="#contact">Контакты</a>
+              </li>
+              <li class="visible-xs visible-sm">
+                <a href="tel:+" class="text-phone">+ 7 (727) 317- 01-64</a>
+              </li>
+              <li class="visible-xs visible-sm">
+                <a href="tel:+" class="text-phone">+ 7 (778) 997-26-30</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section section-thanks">
+      <div class="container">
+        <div class="section-thanks-content">
+          <div class="section-thanks-block">
+            <div class="section-thanks-title">Спасибо!</div>
+            <div class="section-thanks-text">Ваша заявка успешно принята. В ближайшее время наш юрист свяжется с Вами</div>
+            <a href="/" class="section-thanks-link" id="thanks_button">Вернуться на главную</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer inverse">
+      <div class="container">
+        <div class="footer-content">
+
+          <a href="/" class="logo">
+            <img src="./img/logo.png" alt="">
+          </a>
+
+          <div class="footer-address">
+          </div>
+
+          <div class="footer-phone">
+            Телефоны:
+            <br>
+            <a href="tel:+" class="text-phone">+ 7 (727) 317 - 01 - 64</a>
+            <br>
+            <a href="tel:+" class="text-phone">+ 7 778 997 - 26 - 30</a>
+          </div>
+
+          <div class="footer-comand">
+            Созддано командой
+            <br>
+            <img src="./img/marketing-time.png" alt="">
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <div class="remodal remodal-small modal" data-remodal-id="zvonok-modal" data-remodal-options="hashTracking: true">
+    <button data-remodal-action="close" class="remodal-close"></button>
+
+    <div class="modal-title">
+      Оставьте заявку, <br> и наш консультант Вам перезвонит
+    </div>
+
+    <form action="/mail.php" method="post">
+      <input type="hidden" name="info" value="Обратный звонок">
+      <div class="input-div">
+        <input type="text" class="input" name="name" placeholder="Введите имя">
+      </div>
+      <div class="input-div">
+        <input type="tel" class="input" name="phone" placeholder="Введите номер*" required>
+        <span class="error-message">Заполните это поле</span>
+      </div>
+      <div class="form-info">* Ваши данные в безопасности и не будут переданы третьим лицам</div>
+
+      <button class="button ajax-submit" type="submit" id="zakazat_zvonok">Заказать обратный звонок</button>
+    </form>
+
+  </div>
+
+
+  <link rel="stylesheet" href="./css/libs.min.css">
+  <link rel="stylesheet" href="./css/main.min.css">
+  <script src="./js/libs.min.js"></script>
+  <script src="./js/main.min.js"></script>
+
+</body>
+
+</html>
