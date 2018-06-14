@@ -1,0 +1,17 @@
+<div class="remodal remodal-small modal" data-remodal-id="zvonok-modal" data-remodal-options="hashTracking: true">
+  <button data-remodal-action="close" class="remodal-close"></button>
+  <div class="modal-title">Оставьте заявку, <br>и наш консультант Вам перезвонит</div>
+  <form action="/mail.php" method="post">
+    <input type="hidden" name="info" value="Обратный звонок">
+    <div class="input-div">
+      <input type="text" class="input" name="name" placeholder="Введите имя">
+    </div>
+    <div class="input-div">
+      <input type="tel" class="input" name="phone" placeholder="Введите номер*" required>
+      <span class="error-message">Заполните это поле</span>
+
+    </div>
+    <div class="form-info">* Ваши данные в безопасности и не будут переданы третьим лицам</div>
+    <button class="button ajax-submit" type="submit" id="zakazat_zvonok">Заказать обратный звонок</button>
+  </form>
+</div>

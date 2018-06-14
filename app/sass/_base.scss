@@ -114,7 +114,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .input, .textarea {
-  background: transparent;
   color: $text_color;
   font-size: 14px;
   line-height: inherit;
@@ -170,15 +169,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .form {
   position: relative;
+  max-width: 800px;
+  margin: 0 auto;
   
-  form {      
+  &-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-  }
-
-  &-content {
-    margin: 0 auto;
   }
 
   &-title {
@@ -188,13 +185,16 @@ h1, h2, h3, h4, h5, h6 {
 
   .input-div {
     margin-right: 20px;
+    flex-basis: 180px;
   }
 
   .input-div, .button {
     margin-bottom: 10px;
+    flex-grow: 1;
   }
 
   &-info {
     font-size: 10px;
+    text-align: left;
   }
 }

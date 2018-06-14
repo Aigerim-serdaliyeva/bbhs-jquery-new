@@ -5,20 +5,27 @@ $(document).ready(function () {
   var $html = $("html, body");
   var $header = $(".header");
   var $menu = $(".main-menu");
-  var utms = parseGET();
   var headerHeight = 99;
   var $hamburger = $(".hamburger");
 
+  // забираем utm из адресной строки и пишем в sessionStorage, чтобы отправить их на сервер при form submit
+  var utms = parseGET();
+  // проверяем есть ли utm в адресной строке, если есть то пишем в sessionStorage
   if (utms && Object.keys(utms).length > 0) {
     window.sessionStorage.setItem('utms', JSON.stringify(utms));
   } else {
+    // если нет то берем utm из sessionStorage
     utms = JSON.parse(window.sessionStorage.getItem('utms') || "[]");
   }
+
+  // Инициализируем анимацию (для мобильных отключен)
+  new WOW({ mobile: false }).init();
 
   if ($wnd.width() < 992) {
     headerHeight = 89;
   }
 
+  // jquery.maskedinput для ПК и планшет (мобильном не подключаем)
   if ($wnd.width() > 479) {
     $("input[type=tel]").mask("+7 (999) 999 99 99", {
       completed: function () {
@@ -44,6 +51,7 @@ $(document).ready(function () {
 
     var scrollPos = $wnd.scrollTop() + headerHeight;
 
+    // добавляет клас active в ссылку меню, когда находимся на блоке, куда эта ссылка ссылается
     $menu.find(".link").each(function () {
       var link = $(this);
       var id = link.attr('href');
@@ -63,14 +71,17 @@ $(document).ready(function () {
 
   onscroll();
 
+  // при нажатии на меню плавно скролит к соответсвующему блоку
   $(".main-menu .link").click(function (e) {
     var $href = $(this).attr('href');
     if ($href.length > 1 && $href.charAt(0) == '#' && $($href).length > 0) {
       e.preventDefault();
+      // отнимаем высоту шапки, для того чтобы шапка не прикрывала верхнию часть блока
       var top = $($href).offset().top - headerHeight;
       $html.stop().animate({ scrollTop: top }, "slow", "swing");
     }
 
+    // как только доходим до блока, скрываем меню
     if ($wnd.width() <= 991) {
       toggleHamburger();
     }
@@ -81,6 +92,7 @@ $(document).ready(function () {
   });
 
 
+  // при изменении объязателных полей проверяем можно ли удалять класс error
   $("input:required, textarea:required").keyup(function () {
     var $this = $(this);
     if ($this.attr('type') != 'tel') {
@@ -93,6 +105,7 @@ $(document).ready(function () {
     return false;
   });
 
+  // показывает и скрывает меню, а также меняет состояние гамбургера
   function toggleHamburger() {
     $this = $hamburger;
     if (!$this.hasClass("is-active")) {
@@ -104,6 +117,7 @@ $(document).ready(function () {
     }
   }
 
+  // при закрытии модального окна удаляем error клас формы в модальном окне
   $(document).on('closing', '.remodal', function (e) {
     $(this).find(".input, .textarea").removeClass("error");
     var form = $(this).find("form");
@@ -117,9 +131,11 @@ $(document).ready(function () {
     var $requireds = $form.find(':required');
     var formValid = true;
 
+    // проверяем объязательные (required) поля этой формы
     $requireds.each(function () {
       $elem = $(this);
 
+      // если поле пусто, то ему добавляем класс error
       if (!$elem.val() || !checkInput($elem)) {
         $elem.addClass('error');
         formValid = false;
@@ -127,11 +143,11 @@ $(document).ready(function () {
     });
 
     if (formValid) {
-
+      // если нет utm
       if (Object.keys(utms).length === 0) {
         utms['utm'] = "Прямой переход";
       }
-
+      // создаем скрытые поля для utm внутрии формы
       for (var key in utms) {
         var input = document.createElement("input");
         input.type = "hidden";
@@ -146,15 +162,13 @@ $(document).ready(function () {
 
 
   $(".carousel-certificates").owlCarousel({
-    nav: false,
-    dots: true,
     loop: true,
     smartSpeed: 500,
     margin: 30,
     navText: ['', ''],
     responsive: {
-      0: { items: 1, mouseDrag: false },
-      480: { items: 2, mouseDrag: true },
+      0: { items: 1, mouseDrag: false, dots: true, nav: false },
+      480: { items: 2, mouseDrag: true, dots: false, nav: true },
     },
   });
 
@@ -166,6 +180,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 
+// в основном для проверки поле email
 function checkInput($input) {
   if ($input.val()) {
     if ($input.attr('type') != 'email' || validateEmail($input.val())) {
@@ -176,6 +191,7 @@ function checkInput($input) {
   return false;
 }
 
+// забирает utm тэги из адресной строки
 function parseGET(url) {
   var namekey = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 

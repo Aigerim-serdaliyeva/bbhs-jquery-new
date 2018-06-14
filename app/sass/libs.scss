@@ -5,6 +5,7 @@
 @import '../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min';
 @import '../../node_modules/hamburgers/dist/hamburgers.min';
 @import '../../node_modules/font-awesome/css/font-awesome.min';
+@import '../../node_modules/animate.css/animate.min';
 @import './_vars';
 
 @font-face {
@@ -34,7 +35,7 @@
       background-image: url('../img/arrow-left.png') !important;
       background-repeat: no-repeat !important;
       background-position: center center !important;
-      margin-top: -43.5px;
+      transform: translateY(-50%);
       outline: 0;
       z-index: 10;
 		}
@@ -56,13 +57,12 @@
     &-dot {
       width: 16px;
       height: 16px;
-      background: transparent !important;
+      background: $accent !important;
       margin: 0 5px;
-      border: 3px solid $accent !important;
       border-radius: 50%;
 
       &.active {
-        background: $accent !important;
+        background: darken($accent, 15%) !important;
       } 
     }
 	}

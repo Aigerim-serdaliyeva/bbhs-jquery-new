@@ -3,10 +3,9 @@
 
 <head>
 
-
   <meta charset="utf-8">
 
-  <title></title>
+  <title>Главная страница</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -16,14 +15,11 @@
 
   <meta property="og:image" content="path/to/image.jpg">
   <link rel="shortcut icon" href="img/favicon.ico?v=10" type="image/x-icon">
-
-  <style>
-    body { opacity: 0; overflow-x: hidden; }
-    html { background-color: #fff; }
-  </style>
+  <link rel="stylesheet" href="./css/libs.min.css">
+  <link rel="stylesheet" href="./css/main.min.css">
 </head>
 
-<body>
+<body id="main-page">
 
   <div class="page-wrapper">
 
@@ -43,8 +39,8 @@
           </h3>
 
           <div class="header-phone hidden-xxs">
-            <a href="tel:+" class="text-phone">+ 7 (727) 317- 01-64</a>
-            <a href="tel:+" class="text-phone">+ 7 (778) 997-26-30</a>
+            <a href="tel:+" class="text-phone" id="phone_number">+ 7 (727) 317- 01-64</a>
+            <a href="tel:+" class="text-phone" id="phone_number">+ 7 (778) 997-26-30</a>
           </div>
 
           <a href="#" class="button" data-remodal-target="zvonok-modal">Заказать звонок</a>
@@ -78,10 +74,10 @@
                 <a class="link" href="#contact">Контакты</a>
               </li>
               <li class="visible-xs visible-sm">
-                <a href="tel:+" class="text-phone">+ 7 (727) 317- 01-64</a>
+                <a href="tel:+" class="text-phone" id="phone_number">+ 7 (727) 317- 01-64</a>
               </li>
               <li class="visible-xs visible-sm">
-                <a href="tel:+" class="text-phone">+ 7 (778) 997-26-30</a>
+                <a href="tel:+" class="text-phone" id="phone_number">+ 7 (778) 997-26-30</a>
               </li>
             </ul>
           </div>
@@ -89,73 +85,80 @@
       </div>
     </header>
 
-    <section class="section section-main inverse" id="main">
-      <div class="container">
+<section class="section section-main" id="main">
+  <div class="container">
+      <div class="form wow slideInLeft">
+          <form action="/mail.php" method="post">
+              <div class="form-title">Собираетесь в путешествие, но не знаете как и с чего начать? Доверьтесь
+                  нам и сэкономьте!</div>
+              <div class="form-content">
+                  <input type="hidden" name="info" value="Оставьте заявку на комплексные туристические услуги и получите их со скидкой в 20%!">
+                  <div class="input-div">
+                      <input type="text" class="input" name="name" placeholder="Имя">
+                  </div>
+                  <div class="input-div">
+                      <input type="email" class="input" name="email" placeholder="E-mail *"
+                      required=""> <span class="error-message">Заполните это поле</span>
 
+                  </div>
+                  <div class="input-div">
+                      <input type="tel" class="input" name="phone" placeholder="Номер телефона *"
+                      required=""> <span class="error-message">Заполните это поле</span>
+
+                  </div>
+                  <button class="button ajax-submit" type="submit" id="ostavit_zayavku">Оставить заявку</button>
+              </div>
+              <div class="form-info">*Гарантируем 100% сохранность Ваших данных</div>
+          </form>
       </div>
-    </section>
-
-
+  </div>
+</section>
 
     <footer class="footer inverse">
       <div class="container">
         <div class="footer-content">
-
           <a href="/" class="logo">
             <img src="./img/logo.png" alt="">
           </a>
 
-          <div class="footer-address">
-          </div>
-
-          <div class="footer-phone">
-            Телефоны:
+          <div class="footer-address"></div>
+          <div class="footer-phone">Телефоны:
             <br>
-            <a href="tel:+" class="text-phone">+ 7 (727) 317 - 01 - 64</a>
-            <br>
-            <a href="tel:+" class="text-phone">+ 7 778 997 - 26 - 30</a>
-          </div>
+            <a href="tel:+" class="text-phone" id="phone_number">+ 7 (727) 317 - 01 - 64</a>
 
-          <div class="footer-comand">
-            Созддано командой
+            <br>
+            <a href="tel:+" class="text-phone" id="phone_number">+ 7 778 997 - 26 - 30</a>
+
+          </div>
+          <div class="footer-comand">Созддано командой
             <br>
             <img src="./img/marketing-time.png" alt="">
           </div>
-
         </div>
       </div>
     </footer>
-
   </div>
 
   <div class="remodal remodal-small modal" data-remodal-id="zvonok-modal" data-remodal-options="hashTracking: true">
-    <button data-remodal-action="close" class="remodal-close"></button>
-
-    <div class="modal-title">
-      Оставьте заявку, <br> и наш консультант Вам перезвонит
+  <button data-remodal-action="close" class="remodal-close"></button>
+  <div class="modal-title">Оставьте заявку, <br>и наш консультант Вам перезвонит</div>
+  <form action="/mail.php" method="post">
+    <input type="hidden" name="info" value="Обратный звонок">
+    <div class="input-div">
+      <input type="text" class="input" name="name" placeholder="Введите имя">
     </div>
+    <div class="input-div">
+      <input type="tel" class="input" name="phone" placeholder="Введите номер*" required>
+      <span class="error-message">Заполните это поле</span>
 
-    <form action="/mail.php" method="post">
-      <input type="hidden" name="info" value="Обратный звонок">
-      <div class="input-div">
-        <input type="text" class="input" name="name" placeholder="Введите имя">
-      </div>
-      <div class="input-div">
-        <input type="tel" class="input" name="phone" placeholder="Введите номер*" required>
-        <span class="error-message">Заполните это поле</span>
-      </div>
-      <div class="form-info">* Ваши данные в безопасности и не будут переданы третьим лицам</div>
+    </div>
+    <div class="form-info">* Ваши данные в безопасности и не будут переданы третьим лицам</div>
+    <button class="button ajax-submit" type="submit" id="zakazat_zvonok">Заказать обратный звонок</button>
+  </form>
+</div>
 
-      <button class="button ajax-submit" type="submit" id="zakazat_zvonok">Заказать обратный звонок</button>
-    </form>
-
-  </div>
-
-  <link rel="stylesheet" href="./css/libs.min.css">
-  <link rel="stylesheet" href="./css/main.min.css">
   <script src="./js/libs.min.js"></script>
   <script src="./js/main.min.js"></script>
-
 </body>
 
 </html>

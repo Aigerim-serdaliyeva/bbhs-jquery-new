@@ -95,6 +95,25 @@
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px) {
 
+  .form {
+    &-content {
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .input-div, .button {
+      width: 100%;
+    }
+    .input-div {
+      margin-right: 0;
+      flex-basis: auto;
+    }    
+    &-info {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
   .logo {
     max-width: 200px;
   }
