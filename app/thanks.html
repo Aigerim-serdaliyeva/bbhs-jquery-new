@@ -56,22 +56,13 @@
           <div class="container">
             <ul>
               <li>
-                <a class="link" href="/#quarantee">Гарантии</a>
+                <a class="link" href="#main">Главная</a>
               </li>
               <li>
-                <a class="link" href="/#praktika">Успешная практика</a>
+                <a class="link" href="#service">Услуги</a>
               </li>
               <li>
-                <a class="link" href="/#why">Выгоды для клиентов</a>
-              </li>
-              <li>
-                <a class="link" href="/#sfera">Услуги</a>
-              </li>
-              <li>
-                <a class="link" href="/#osnovatel">Основатель конторы</a>
-              </li>
-              <li>
-                <a class="link" href="/#contact">Контакты</a>
+                <a class="link" href="#contact">Контакты</a>
               </li>
               <li class="visible-xs visible-sm">
                 <a href="tel:+" class="text-phone" id="phone_number">+ 7 (727) 317- 01-64</a>
@@ -85,17 +76,17 @@
       </div>
     </header>
 
-<section class="section section-thanks">
-  <div class="container">
-    <div class="section-thanks-content">
-      <div class="section-thanks-block">
-        <div class="section-thanks-title">Спасибо!</div>
-        <div class="section-thanks-text">Ваша заявка успешно принята. В ближайшее время наш юрист свяжется с Вами</div>
-        <a href="/" class="section-thanks-link" id="thanks_button">Вернуться на главную</a>
+    <section class="section section-thanks">
+      <div class="container">
+        <div class="section-thanks-content">
+          <div class="section-thanks-block">
+            <div class="section-thanks-title">Спасибо!</div>
+            <div class="section-thanks-text">Ваша заявка успешно принята. В ближайшее время наш юрист свяжется с Вами</div>
+            <a href="/" class="section-thanks-link" id="thanks_button">Вернуться на главную</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <footer class="footer inverse">
       <div class="container">
@@ -105,45 +96,43 @@
           </a>
 
           <div class="footer-address"></div>
+
           <div class="footer-phone">Телефоны:
-            <br>
             <a href="tel:+" class="text-phone" id="phone_number">+ 7 (727) 317 - 01 - 64</a>
-
-            <br>
             <a href="tel:+" class="text-phone" id="phone_number">+ 7 778 997 - 26 - 30</a>
-
           </div>
+
           <div class="footer-comand">Созддано командой
-            <br>
-            <img src="./img/marketing-time.png" alt="">
+            <a href="//marketing-time.kz" target="_blank">
+              <img src="./img/marketing-time.png" alt="">
+            </a>
           </div>
         </div>
       </div>
     </footer>
-  </div>
 
-  <div class="remodal remodal-small modal" data-remodal-id="zvonok-modal" data-remodal-options="hashTracking: true">
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <div class="modal-title">Оставьте заявку, <br>и наш консультант Вам перезвонит</div>
-  <form action="/mail.php" method="post">
-    <input type="hidden" name="info" value="Обратный звонок">
-    <div class="input-div">
-      <input type="text" class="input" name="name" placeholder="Введите имя">
+    <div class="remodal remodal-small modal" data-remodal-id="zvonok-modal" data-remodal-options="hashTracking: true">
+      <button data-remodal-action="close" class="remodal-close"></button>
+      <div class="modal-title">Оставьте заявку,
+        <br>и наш консультант Вам перезвонит</div>
+      <form action="/mail.php" method="post">
+        <input type="hidden" name="antispam" value="">
+        <input type="hidden" name="info" value="Обратный звонок">
+        <div class="input-div">
+          <input type="text" class="input" name="name" placeholder="Введите имя">
+        </div>
+        <div class="input-div">
+          <input type="tel" class="input" name="phone" placeholder="Введите номер*" required>
+          <span class="error-message">Заполните это поле</span>
+
+        </div>
+        <div class="form-info">* Ваши данные в безопасности и не будут переданы третьим лицам</div>
+        <button class="button ajax-submit" type="submit" id="zakazat_zvonok">Заказать обратный звонок</button>
+      </form>
     </div>
-    <div class="input-div">
-      <input type="tel" class="input" name="phone" placeholder="Введите номер*" required>
-      <span class="error-message">Заполните это поле</span>
 
-    </div>
-    <div class="form-info">* Ваши данные в безопасности и не будут переданы третьим лицам</div>
-    <button class="button ajax-submit" type="submit" id="zakazat_zvonok">Заказать обратный звонок</button>
-  </form>
-</div>
-
-  
-
-  <script src="./js/libs.min.js"></script>
-  <script src="./js/main.min.js"></script>
+    <script src="./js/libs.min.js"></script>
+    <script src="./js/main.min.js"></script>
 </body>
 
 </html>

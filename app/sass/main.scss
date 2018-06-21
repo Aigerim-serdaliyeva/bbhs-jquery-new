@@ -16,77 +16,7 @@ body {
   opacity: 1;
 }
 
-.page-top {
-	position: fixed;
-	bottom: 20px;
-	right: -100px;
-	z-index: 99;
-	cursor: pointer;
-	@include circle(50px);
-	background-color: $accent;
-	font-size: 25px;
-	color: #ffffff;
-	opacity: .3;
-	transition: all .5s ease-out;	
 
-	&.active {		
-		right: 20px;			
-	}
-
-	&:hover {
-		opacity: 1;
-	}
-}
-
-.call-me {
-  position: fixed;
-	bottom: 20px;
-	left: 20px;
-	z-index: 99;
-	cursor: pointer;
-  @include circle(50px);
-  background-color: #58ea00;
-  cursor: pointer;
-  display: none;
-
-  .fa {
-    color: #fff;
-    font-size: 25px;
-    position: relative;
-    top: 5px;
-  }
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    right: -15px;
-    bottom: -15px;
-    border: 1px solid #58ea00;
-    border-radius: 50%;
-    animation: pulse 1.5s linear infinite;
-  }
-
-  &:after {
-    animation-delay: 0.5s;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
 
 .page-wrapper {
   overflow: hidden;
@@ -147,6 +77,11 @@ body {
 
   &-comand {
     margin-left: 100px;
+
+    a {
+      margin-top: 3px;
+      display: block;
+    }
   }   
 }
 

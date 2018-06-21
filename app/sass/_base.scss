@@ -1,12 +1,7 @@
 @import './vars';
-
-@mixin circle($width) {
-	width: $width;
-	height: $width;
-	line-height: $width;	
-	text-align: center;
-	border-radius: 50%;
-}
+@import '../../node_modules/bootstrap/scss/bootstrap-reboot.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import '../../node_modules/bootstrap/scss/utilities/_spacing.scss';
 
 * {
   box-sizing: border-box;
@@ -70,14 +65,112 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hamburger {
+  background-color: #fff;
+  padding: 10px;
+	line-height: 0;
   display: none;
   margin-left: 20px;
+	    
+  &-box {
+    width: 30px;
+  }
+
+  &-inner {
+    &, &:after, &:before {            
+      border-radius: 0;
+      width: 100%;
+      height: 2px;        
+    }
+
+    & {
+      margin-top: -1px;
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &:after {
+      bottom: -7px;
+    }
+  }
 }
 
 .grow {
   flex-grow: 1;
 }
 
+.page-top {
+	position: fixed;
+	bottom: 20px;
+	right: -100px;
+	z-index: 99;
+	cursor: pointer;
+	@include circle(50px);
+	background-color: $accent;
+	font-size: 25px;
+	color: #ffffff;
+	opacity: .3;
+	transition: all .5s ease-out;	
+
+	&.active {		
+		right: 20px;			
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.call-me {
+  position: fixed;
+	bottom: 20px;
+	left: 20px;
+	z-index: 99;
+	cursor: pointer;
+  @include circle(50px);
+  background-color: #58ea00;
+  cursor: pointer;
+  display: none;
+
+  .fa {
+    color: #fff;
+    font-size: 25px;
+    position: relative;
+    top: 5px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 1px solid #58ea00;
+    border-radius: 50%;
+    animation: pulse 1.5s linear infinite;
+  }
+
+  &:after {
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
 
 .button {
   position: relative;
@@ -197,4 +290,54 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 10px;
     text-align: left;
   }
+}
+
+.owl-carousel {
+	.owl {
+    &-item {
+      img {
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+
+		&-prev, &-next {
+			position: absolute;
+			top: 50%;
+			width: 44px;
+      height: 70px;
+      background-image: url('../img/arrow-left.png') !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      transform: translateY(-50%);
+      outline: 0;
+      z-index: 10;
+		}
+
+		&-prev {
+      left: 0px;
+		}
+
+		&-next {
+      right: 0px;
+      background-image: url('../img/arrow-right.png') !important;
+    }
+
+    &-dots {
+      position: relative;
+      text-align: center;
+    }
+    
+    &-dot {
+      width: 16px;
+      height: 16px;
+      background: $accent !important;
+      margin: 0 5px;
+      border-radius: 50%;
+
+      &.active {
+        background: darken($accent, 15%) !important;
+      } 
+    }
+	}
 }
