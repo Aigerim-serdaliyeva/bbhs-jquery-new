@@ -64,10 +64,7 @@
 }
 
 // ≥768px
-@include media-breakpoint-down(sm) {
-  .remodal {
-    max-width: 80%;
-  }
+@include media-breakpoint-down(sm) {  
 
   .form {
     &-content {
@@ -153,7 +150,9 @@
 
 // ≤768px
 @include media-breakpoint-up(md) {
-
+  .remodal {
+    max-width: 80%;
+  }
 }
 
 // ≤992px
