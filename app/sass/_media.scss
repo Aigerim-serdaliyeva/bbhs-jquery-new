@@ -10,11 +10,6 @@
 
 // ≥992px
 @include media-breakpoint-down(md) {
-
-}
-
-// ≥768px
-@include media-breakpoint-down(sm) {
   .hamburger {
     display: block;
   }    
@@ -68,8 +63,12 @@
   }
 }
 
-// ≥576px
-@include media-breakpoint-down(xs) {
+// ≥768px
+@include media-breakpoint-down(sm) {
+  .remodal {
+    max-width: 80%;
+  }
+
   .form {
     &-content {
       flex-direction: column;
@@ -110,44 +109,27 @@
   }
 }
 
-
-/*==========  Mobile First  ==========*/
-
-// ≤576px
-@include media-breakpoint-up(sm) {
+// ≥576px
+@include media-breakpoint-down(xs) {
   .call-me {
     display: block;
   }
 
   .remodal {
-    .modal-title {
-      font-size: 18px;
+    &.remodal-small {
+      padding: 20px 10px;
+    }
+  }
+
+  .modal {
+    &-title {
+      font-size: 20px;
       margin-bottom: 15px;
     }
 
     form {
       width: auto;
     }
-
-    &.remodal-small {
-      padding: 20px 10px;
-    }
-  }
-
-	.col-xxs-12 {
-		width: 100%;
-	}
-
-	.col-xxs-offset-0 {
-		margin-left: 0;
-  }
-    
-  .visible-xxs {
-    display: block !important;
-  }
-
-	.hidden-xxs {
-		display: none !important;
   }
 
   .header {
@@ -159,12 +141,14 @@
   .section {
 
   }
+}
 
-  .modal {
-    &-title {
-      font-size: 20px;
-    }
-  }
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
+@include media-breakpoint-up(sm) {
+  
 }
 
 // ≤768px

@@ -7,6 +7,22 @@
   box-sizing: border-box;
 }
 
+html, body {
+	margin: 0;
+}
+
+body {
+	min-width: 320px;
+	position: relative;
+	color: $text_color;
+	line-height: 1.2;
+	font-size: $font_size;
+  font-weight: normal;
+  font-family: $default_family;
+  overflow-x: auto;
+  opacity: 1;
+}
+
 img {
   max-width: 100%;
 }
@@ -340,4 +356,23 @@ h1, h2, h3, h4, h5, h6 {
       } 
     }
 	}
+}
+
+.remodal {
+  text-align: left;
+  color: $text_color;
+
+  &-close {
+    left: auto;
+    right: 0;
+    color: $text_color;
+    &:before {
+      font-size: 35px;
+    }
+  }
+
+  &.remodal-small {
+    max-width: 400px;
+    padding: 60px 25px;
+  }
 }
