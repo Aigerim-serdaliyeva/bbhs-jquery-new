@@ -346,6 +346,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &--vertical {
+    max-width: 300px;
+    
     .form {
       &__content {
         max-width: 260px;
