@@ -21,7 +21,7 @@
   .footer {
     text-align: center;
 
-    &-content {
+    &__content {
       flex-direction: column;
 
       & > * {
@@ -58,7 +58,7 @@
 		}
   }    
 
-  .section {
+  .s {
     
   }
 }
@@ -67,21 +67,25 @@
 @include media-breakpoint-down(sm) {  
 
   .form {
-    &-content {
-      flex-direction: column;
-      max-width: 500px;
-      margin: 0 auto;
+    &--horizontal {
+      .form {
+        &__content {
+          flex-direction: column;
+          max-width: 500px;
+        } 
+        
+        &__info {
+          max-width: 500px;
+        }
+      }
+
+      .input-div {
+        margin-right: 0;
+      }  
     }
+
     .input-div, .button {
       width: 100%;
-    }
-    .input-div {
-      margin-right: 0;
-      flex-basis: auto;
-    }    
-    &-info {
-      max-width: 500px;
-      margin: 0 auto;
     }
   }
 
@@ -98,45 +102,35 @@
   .section {
     &-title {
       font-size: 24px;
-    }
+    }      
+  }
 
+  .s {
     &-main {
       
-    }    
+    } 
   }
 }
 
 // ≥576px
 @include media-breakpoint-down(xs) {
   .call-me {
-    display: block;
+    display: flex;
   }
 
-  .remodal {
-    &.remodal-small {
-      padding: 20px 10px;
+  .s {
+    &-thanks {
+      padding: 150px 0 50px;
+      
+      &-title {
+        font-size: 30px;
+      }
+
+      &-text {
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
     }
-  }
-
-  .modal {
-    &-title {
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-
-    form {
-      width: auto;
-    }
-  }
-
-  .header {
-    .button {
-      display: none;
-    }
-  }
-
-  .section {
-
   }
 }
 
@@ -150,9 +144,7 @@
 
 // ≤768px
 @include media-breakpoint-up(md) {
-  .remodal {
-    max-width: 80%;
-  }
+
 }
 
 // ≤992px

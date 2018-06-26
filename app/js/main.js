@@ -44,9 +44,9 @@ $(document).ready(function () {
     }
 
     if ($wnd.scrollTop() > 0) {
-      $header.addClass('scrolled');
+      $header.addClass('header--scrolled');
     } else {
-      $header.removeClass('scrolled');
+      $header.removeClass('header--scrolled');
     }
 
     var scrollPos = $wnd.scrollTop() + headerHeight;

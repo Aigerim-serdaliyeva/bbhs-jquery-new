@@ -2,6 +2,7 @@
 @import '../../node_modules/bootstrap/scss/bootstrap-reboot.scss';
 @import '../../node_modules/bootstrap/scss/bootstrap-grid.scss';
 @import '../../node_modules/bootstrap/scss/utilities/_spacing.scss';
+@import '../../node_modules/bootstrap/scss/utilities/_display.scss';
 
 * {
   box-sizing: border-box;
@@ -37,7 +38,9 @@ a {
 }
 
 input, button, textarea, a {
-  outline: none;
+  &, &:hover, &:focus {
+    outline: none;
+  }
 }
 
 p {
@@ -62,6 +65,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .light {
   font-weight: 300;
+}
+
+.word {
+  white-space: nowrap;
 }
 
 .text {
@@ -261,7 +268,23 @@ h1, h2, h3, h4, h5, h6 {
 	&:-ms-input-placeholder {
     color: #000;
 		opacity: 1;
-	}
+  }
+  
+  .inverse & {
+    color: #fff;
+
+    &::-webkit-input-placeholder {
+      color: #fff;
+    }
+    
+    &::-moz-placeholder {
+      color: #fff;
+    }
+    
+    &:-ms-input-placeholder {
+      color: #fff;
+    } 
+  }
 	
 	&.error::-webkit-input-placeholder {
 		color: red;
@@ -277,40 +300,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  
-  &-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  &-title {
+  position: relative;  
+    
+  &__title {
     font-size: 20px;
     text-align: center;
-  }
-
-  .input-div {
-    margin-right: 20px;
-    flex-basis: 180px;
+    margin-bottom: 20px;
   }
 
   .input-div, .button {
     margin-bottom: 10px;
-    flex-grow: 1;
   }
 
-  &-info {
+  &__info {
     font-size: 10px;
     text-align: left;
+  }
+
+  &--horizontal {
+    .form {
+      &__content, &__info {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .input-div {
+      margin-right: 20px;
+    }
+  }
+
+  &--vertical {
+    .form {
+      &__content {
+        max-width: 260px;
+        margin: 0 auto;    
+      }
+    }
+
+    .button {
+      width: 100%;
+    }
   }
 }
 
 .owl-carousel {
 	.owl {
+    &-stage {
+      display: flex;
+    }
+
     &-item {
+      float: none;
+      display: flex;
+      justify-content: center;
+
       img {
         width: auto;
         margin: 0 auto;
@@ -320,8 +370,8 @@ h1, h2, h3, h4, h5, h6 {
 		&-prev, &-next {
 			position: absolute;
 			top: 50%;
-			width: 44px;
-      height: 70px;
+			width: 26px;
+      height: 50px;
       background-image: url('../img/arrow-left.png') !important;
       background-repeat: no-repeat !important;
       background-position: center center !important;
@@ -342,6 +392,7 @@ h1, h2, h3, h4, h5, h6 {
     &-dots {
       position: relative;
       text-align: center;
+      margin-top: 15px;
     }
     
     &-dot {
@@ -361,17 +412,20 @@ h1, h2, h3, h4, h5, h6 {
 .remodal {
   text-align: left;
   color: $text_color;
+  max-width: 80%;
 
   &-close {
     left: auto;
     right: 0;
     color: $text_color;
+    z-index: 20;
+
     &:before {
       font-size: 35px;
     }
   }
 
-  &.remodal-small {
+  &--small {
     max-width: 400px;
     padding: 60px 25px;
   }

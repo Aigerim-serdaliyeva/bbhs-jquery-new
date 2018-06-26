@@ -17,12 +17,12 @@
   padding: 10px 0;
   background-color: rgba(#fff, 0.7);
 
-  &.scrolled {
+  &--scrolled {
     background-color: rgba(#fff, 1);      
     border-bottom: 1px solid $accent;
   }
 
-  &-content {
+  &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;      
@@ -41,7 +41,7 @@
     margin-right: 100px;
   }
 
-  &-content {
+  &__content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -49,16 +49,16 @@
     padding: 15px 0;
   }
 
-  &-address {
+  &__address {
     max-width: 165px;
     margin-right: 40px;
   }
 
-  &-phone {
+  &__phone {
     margin-right: 55px;
   }
 
-  &-comand {
+  &__comand {
     margin-left: 100px;
 
     a {
@@ -87,8 +87,10 @@
     font-weight: normal;
     border-bottom: 2px solid transparent;
 
-    &.link:hover, &.active {
+    &.link {
+      &:hover, &.active {
         border-bottom: 2px solid $accent;
+      }
     }
   }
 }
@@ -98,7 +100,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  text-align: center;
 
   &-title {
     font-size: 36px;
@@ -110,7 +111,9 @@
       color: #fff;
     }
   }
+}
 
+.s {
   &-main {
     padding-top: 150px;
     background-image: url('../img/main-back.jpg');
@@ -123,71 +126,28 @@
     }
   }
 
-}
-
-
-
-#thanks-page {   
-
-  .section-thanks {
-    padding: 200px 0 0 0;
-    background-image: url('../img/thanks-back.jpg');
+  &-thanks {
+    padding: 200px 0 100px 0;
     flex-grow: 1;
-  
-    &-content {
-      display: flex;
-      justify-content: space-between;   
-      margin-left: 90px;      
-    }
-    
-    &-title {
-      font-size: 42px;
-      margin-bottom: 40px;
+      
+    &__title {
+      color: $accent;
+      font-size: 48px;
+      font-weight: normal;
+      margin-bottom: 30px;
     }
 
-    &-text {
-      font-size: 30px;
-      margin: 0 0 60px;
+    &__text {
+      font-size: 24px;
+      margin: 0 0 125px;
     }
   
-    &-link {
+    &__link {
       text-decoration: underline;
-      font-size: 18px;
-      display: inline-block;
-      margin-bottom: 150px;
+      color: $accent;
     }
   }
 }
-
-
-.modal {
-  text-align: center;
-
-  &-title {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 30px;
-  }
-
-  form {
-    margin: 0 auto;
-    width: 300px;
-  }
-
-  .form-info {
-    text-align: left;
-    letter-spacing: 0;
-  }
-
-  .input-div {
-    margin-bottom: 10px;
-  }
-
-  .button {
-    width: 100%;
-  }
-}
-
 
 
 @import './_media';
