@@ -32,9 +32,18 @@ a {
   color: $text_color;
   text-decoration: none;
 
+  &:hover {
+    color: $text_color;
+    text-decoration: none;
+  }
+
   .inverse & {
     color: #fff;
-  }
+    
+    &:hover {
+      color: #fff;
+    }
+  }  
 }
 
 input, button, textarea, a {
