@@ -77,7 +77,7 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'libs-js', 'main-js'], fun
     'app/*.html',
     'app/*.php',
     'app/*.txt',
-    'app/.htaccess',
+    'app/.htaccess'
   ]).pipe(gulp.dest('dist'));
 
   var buildVideos = gulp.src([
@@ -90,7 +90,7 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'libs-js', 'main-js'], fun
 
   var buildCss = gulp.src([
     'app/css/libs.min.css',
-    'app/css/main.min.css',
+    'app/css/main.min.css'
   ]).pipe(gulp.dest('dist/css'));
 
   var buildJs = gulp.src([
