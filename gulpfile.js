@@ -102,6 +102,11 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'libs-js', 'main-js'], fun
     'app/fonts/**/*',
   ]).pipe(gulp.dest('dist/fonts'));
 
+  var buildAdmin = gulp.src([
+    'app/admin/*',
+    'app/admin/.htaccess'
+  ]).pipe(gulp.dest('dist/admin'));
+
 });
 
 gulp.task('rsync', function() {
