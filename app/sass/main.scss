@@ -74,6 +74,10 @@
 
   li {
     margin-right: 28px;
+    
+    &.last {
+      margin-right: 0;
+    }
   }
 
   a {
