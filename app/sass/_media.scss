@@ -114,6 +114,10 @@
 
 // ≥576px
 @include media-breakpoint-down(xs) {
+  .break {
+    display: inline;
+  }
+
   .call-me {
     display: flex;
   }
