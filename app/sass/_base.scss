@@ -237,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
 .input-div {
   position: relative;
   
-  .input {
+  .input, .textarea {
     width: 100%;  
   }
 }
@@ -310,6 +310,10 @@ h1, h2, h3, h4, h5, h6 {
 	&.error:-ms-input-placeholder {
 		color: red;
 	}
+}
+
+.textarea {
+  height: 114px;
 }
 
 .form {
