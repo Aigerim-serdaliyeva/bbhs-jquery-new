@@ -16,6 +16,9 @@ if(isset($_POST["info"])) {
 
     foreach ( $_POST as $key => $value ) {
       if ( $value != "") {
+        if (is_array($value)) {
+            $value = implode(',', $value);
+        }
         $message .= "
         " . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
           <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
@@ -24,7 +27,7 @@ if(isset($_POST["info"])) {
         ";
       }
     }
-  } 
+  }
 
   $message = "<table style='width: 100%;'>$message</table>";
 
