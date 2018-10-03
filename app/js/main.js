@@ -54,7 +54,7 @@ $(document).ready(function () {
     // добавляет клас active в ссылку меню, когда находимся на блоке, куда эта ссылка ссылается
     $menu.find(".link").each(function () {
       var link = $(this);
-      var id = link.attr('href');
+      var id = link.find('a').attr('href');
 
       if (id.length > 1 && id.charAt(0) == '#' && $(id).length > 0) {
         var section = $(id);
@@ -72,7 +72,7 @@ $(document).ready(function () {
   onscroll();
 
   // при нажатии на меню плавно скролит к соответсвующему блоку
-  $(".main-menu .link").click(function (e) {
+  $(".main-menu .link a").click(function (e) {
     var $href = $(this).attr('href');
     if ($href.length > 1 && $href.charAt(0) == '#' && $($href).length > 0) {
       e.preventDefault();

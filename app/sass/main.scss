@@ -78,6 +78,10 @@
     &.last {
       margin-right: 0;
     }
+
+    &.link a:hover, &.active a {
+      border-bottom: 2px solid $accent;
+    }
   }
 
   a {
@@ -85,13 +89,7 @@
     line-height: 1.5;
     text-decoration: none;
     font-weight: normal;
-    border-bottom: 2px solid transparent;
-
-    &.link {
-      &:hover, &.active {
-        border-bottom: 2px solid $accent;
-      }
-    }
+    border-bottom: 2px solid transparent;    
   }
 }
 
