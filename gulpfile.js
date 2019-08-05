@@ -1,16 +1,56 @@
-var gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  browserSync = require('browser-sync'),
-  concat = require('gulp-concat'),
-  uglify = require('gulp-uglify'),
-  cleanCSS = require('gulp-clean-css'),
-  rename = require('gulp-rename'),
-  del = require('del'),
-  imagemin = require('gulp-imagemin'),
-  cache = require('gulp-cache'),
-  autoprefixer = require('gulp-autoprefixer'),
-  notify = require("gulp-notify"),
-  htmlmin = require('gulp-htmlmin');
+var gulp         = require('gulp'),
+    sass         = require('gulp-sass'),
+    browserSync  = require('browser-sync'),
+    concat       = require('gulp-concat'),
+    uglify       = require('gulp-uglify-es').default,
+    cleancss     = require('gulp-clean-css'),
+    autoprefixer = require('gulp-autoprefixer'),
+    rsync        = require('gulp-rsync'),
+		newer        = require('gulp-newer'),
+    rename       = require('gulp-rename'),
+    responsive   = require('gulp-responsive'),
+    del          = require('del');
+
+// Local Server
+gulp.task('browser-sync', function() {
+	browserSync({
+		server: {
+			baseDir: 'app'
+		},
+		notify: false,
+		// online: false, // Work offline without internet connection
+		// tunnel: true, tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
+	})
+});
+function bsReload(done) { browserSync.reload(); done(); };
+
+gulp.task('sass', function () {
+  return gulp.src('app/sass/**/*.+(sass|scss)')
+    .pipe(sass({ outputStyle: 'expand' }))
+    .pipe(rename({ suffix: '.min', prefix: '' }))
+    .pipe(autoprefixer({
+      grid: true,
+  		overrideBrowserslist: ['last 10 versions']
+    }))
+    // .pipe(cleancss({level: { 1: { specialComments: 0 } } })) // Опционально, закомментировать при отладке
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.stream())
+});
+
+gulp.task('libs-css', function () {
+  return gulp.src([
+    'node_modules/remodal/dist/remodal.css',
+    'node_modules/remodal/dist/remodal-default-theme.css',
+    'node_modules/owl.carousel/dist/assets/owl.carousel.min.css',
+    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
+    'node_modules/hamburgers/dist/hamburgers.min.css',
+    'node_modules/font-awesome/css/font-awesome.min.css',
+    'node_modules/animate.css/animate.min.css',
+  ])
+  .pipe(cleancss({level: { 1: { specialComments: 0 } } })) // Опционально, закомментировать при отладке
+  .pipe(concat('libs.min.css'))
+  .pipe(gulp.dest('app/css'));
+});
 
 // Скрипты проекта
 
@@ -26,52 +66,37 @@ gulp.task('main-js', function () {
 
 gulp.task('libs-js', function () {
   return gulp.src([
-    'node_modules/jquery/dist/jquery.min.js',
-    'node_modules/remodal/dist/remodal.min.js',
-    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
-    'node_modules/owl.carousel/dist/owl.carousel.min.js',
-    'node_modules/jquery.maskedinput/src/jquery.maskedinput.js',
-    'node_modules/wow.js/dist/wow.min.js'
+   'node_modules/jquery/dist/jquery.min.js',
+   'node_modules/remodal/dist/remodal.min.js',
+   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+   'node_modules/owl.carousel/dist/owl.carousel.min.js',
+   'node_modules/jquery.maskedinput/src/jquery.maskedinput.js'
   ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify()) // Минимизировать весь js (на выбор)
     .pipe(gulp.dest('app/js'));
 });
 
-gulp.task('browser-sync', function () {
-  browserSync({
-    server: {
-      baseDir: 'app'
-    },
-    notify: false,
-    // tunnel: true,
-    // tunnel: "projectmane", //Demonstration page: http://projectmane.localtunnel.me
-  });
-});
-
-gulp.task('sass', function () {
-  return gulp.src('app/sass/**/*.+(sass|scss)')
-    .pipe(sass({ outputStyle: 'expand' }).on("error", notify.onError()))
-    .pipe(rename({ suffix: '.min', prefix: '' }))
-    .pipe(autoprefixer(['last 20 versions']))
-    .pipe(cleanCSS()) // Опционально, закомментировать при отладке
-    .pipe(gulp.dest('app/css'))
-    .pipe(browserSync.reload({ stream: true }));
-});
-
-gulp.task('watch', ['sass', 'libs-js', 'main-js', 'browser-sync'], function () {
-  gulp.watch('app/sass/**/*.+(sass|scss)', ['sass']);
-  gulp.watch('app/js/main.js', ['main-js']);
-  gulp.watch(['app/*.html'], browserSync.reload);
+// Code & Reload
+gulp.task('code', function() {
+	return gulp.src('app/**/*.html')
+	.pipe(browserSync.reload({ stream: true }))
 });
 
 gulp.task('imagemin', function () {
   return gulp.src('app/img/**/*')
-    .pipe(cache(imagemin()))
     .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['removedist', 'imagemin', 'sass', 'libs-js', 'main-js'], function () {
+gulp.task('removedist', function () { return del(['dist'], { force: true })   });
+
+gulp.task('watch', function () {
+  gulp.watch('app/sass/**/*.+(sass|scss)', gulp.parallel('sass'));
+  gulp.watch('app/js/main.js', gulp.parallel('main-js'));
+  gulp.watch(['app/*.html'], gulp.parallel('code'));
+});
+
+gulp.task('build', gulp.parallel('removedist', 'imagemin', 'sass', 'libs-css', 'libs-js', 'main-js'), function () {
 
   var buildFiles = gulp.src([
     'app/*.html',
@@ -124,5 +149,4 @@ gulp.task('rsync', function() {
 	}))
 });
 
-gulp.task('default', ['watch']);
-gulp.task('removedist', function () { return del.sync('dist'); });
+gulp.task('default', gulp.parallel('libs-css', 'sass', 'libs-js', 'main-js', 'browser-sync', 'watch'));
