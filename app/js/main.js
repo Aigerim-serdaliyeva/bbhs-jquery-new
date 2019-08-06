@@ -18,9 +18,6 @@ $(document).ready(function () {
     utms = JSON.parse(window.sessionStorage.getItem('utms') || "[]");
   }
 
-  // Инициализируем анимацию (для мобильных отключен)
-  new WOW({ mobile: false }).init();
-
   if ($wnd.width() < 992) {
     headerHeight = 89;
   }
