@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Главная страница</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="shortcut icon" href="img/favicon.ico?v=1" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./css/libs.min.css">
+  <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body id="main-page">
+
+  <div class="page-wrapper">
+
+    <div class="page-top"><i class="fa fa-angle-double-up"></i></div>
+    <a href="tel:+" id="callMe" class="call-me"><i class="fa fa-phone"></i></a>
+
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <a href="/" class="logo">
+            <img src="./img/logo.png" alt="">
+          </a>
+
+          <div class="grow"></div>
+
+          <button class="hamburger hamburger--elastic hamburger--accessible">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+
+          <nav class="main-menu">
+            <ul>
+              <li class="link">
+                <a href="#about">О BlackBerry Hills</a>
+              </li>
+              <li class="link">
+                <a href="#advantage">Преимущества</a>
+              </li>
+              <li class="link">
+                <a href="#gallery">Галерея</a>
+              </li>
+              <li class="link">
+                <a href="#">Планировка</a>
+              </li>
+              <li class="link">
+                <a href="#">Этапы строительства</a>
+              </li>
+              <li class="link last">
+                <a href="#contact">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="s-layout">
+      <div class="container">
+        <h2 class="section-title">Таунхаусы BlackBerry Hills</h2>
+        <p class="s-layout__text">Свободная планировка является одним из несомненных преимуществ наших таунхаусов. </p>
+        <div class="tab">
+          <div class="tab__links">
+            <div class="tab__link active" data-id="tab1">
+                328 кв.м.
+              <!-- <div class="tab"> -->
+                <div class="tab__links tab__links--min">
+                  <div class="tab__link active" data-id="tab4">1</div>
+                  <div class="tab__link" data-id="tab5">2</div>
+                  <div class="tab__link" data-id="tab6">3</div>
+                </div>
+              <!-- </div> -->
+            </div>
+            <div class="tab__link" data-id="tab2">222 кв.м.</div>
+            <div class="tab__link" data-id="tab3">216 кв.м.</div>
+          </div>
+          
+          <div class="tab__contents">
+            <div class="tab__content active" data-tab="tab1">
+              <!-- <div class="tab">
+                <div class="tab__links">
+                  <div class="tab__link active" data-id="tab1">1</div>
+                  <div class="tab__link" data-id="tab2">2</div>
+                  <div class="tab__link" data-id="tab3">3</div>
+                </div>
+                <div class="tab__contents">
+                  <div class="tab__content active" data-tab="tab1">
+                  </div>
+                  <div class="tab__content" data-tab="tab2">
+                  </div>
+                  <div class="tab__content" data-tab="tab3">
+                  </div>
+                </div>
+              </div> -->
+              <div class="layout">
+                <h3 class="layout__title">СВОБОДНАЯ ПЛАНИРОВКА</h3>
+                <div class="layout__block">
+                  <p class="layout__text">3-х уровневые таунхаусы сдаются в черновой отделке для удобства проектирования планировки по собственному усмотрению.</p>
+                  <div class="layout__img"><img src="./img/layout/layout-1-1.png" alt=""></div>
+                </div>
+              </div>
+            </div>
+            <div class="tab__content" data-tab="tab2">
+              <div class="layout">
+                <h3 class="layout__title">ВАРИАНТ ПЛАНИРОВКИ</h3>
+                <div class="layout__block">
+                  <p class="layout__text">3-х уровневые таунхаусы сдаются в черновой отделке для удобства проектирования планировки по собственному усмотрению.</p>
+                  <div class="layout__img"><img src="./img/layout/layout-2-1.png" alt=""></div>
+                </div>
+              </div>
+            </div>
+            <div class="tab__content" data-tab="tab3">
+              <div class="layout">
+                <h3 class="layout__title">ВАРИАНТ ПЛАНИРОВКИ </h3>
+                <div class="layout__block">
+                  <p class="layout__text">3-х уровневые таунхаусы сдаются в черновой отделке для удобства проектирования планировки по собственному усмотрению.</p>
+                  <div class="layout__img"><img src="./img/layout/layout-3-1.png" alt=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-gallery">
+      <div class="gallery">
+        <div class="gallery-thumbs">
+          <div class="thumbs-carousel">
+            <img src="./img/gallery/gal_1.png" data-img="gal_1.png" alt="">
+            <img src="./img/gallery/gal_2.png" data-img="gal_2.png" alt="">
+            <img src="./img/gallery/gal_3.png" data-img="gal_3.png" alt="">
+            <img src="./img/gallery/gal_4.png" data-img="gal_4.png" alt="">
+          </div>
+        </div>      
+      </div>
+    </section>
+
+    <section class="s-stages">
+      <div class="container">
+        <h2 class="section-title">Ход строительства</h2>
+        <div class="stages-carousel">
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_1.jpg" alt=""></div>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_2.jpg" alt=""></div>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_3.jpg" alt=""></div>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_4.jpg" alt=""></div>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_5.jpg" alt=""></div>
+          </div>
+        </div>
+        <!-- <div class="stages-carousel">
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_1.jpg" alt=""></div>
+            <div class="stage__date">07.09.18 </div>
+            <p class="stage__text">Армирование монолитной плиты фундамента.</p>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_2.jpg" alt=""></div>
+            <div class="stage__date">13.09.18 </div>
+            <p class="stage__text">Армирование монолитных стен и колон. Подготовка к монтажу крупно - щитовой стеновой опалубки.</p>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_3.jpg" alt=""></div>
+            <div class="stage__date">19.09.18 </div>
+            <p class="stage__text">Монтаж стеновой опалубки, подготовка к заливке бетона.</p>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_4.jpg" alt=""></div>
+            <div class="stage__date">26.09.18 </div>
+            <p class="stage__text">Возведение монолитных стен.</p>
+          </div>
+          <div class="stage">
+            <div class="stage__img"><img src="./img/stages/build_5.jpg" alt=""></div>
+            <div class="stage__date">03.10.18 </div>
+            <p class="stage__text">Монтаж деревянных балок для опалубки.</p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+  </div>
+
+  <script src="./js/libs.min.js"></script>
+  <script src="./js/main.min.js"></script>
+</body>
+
+</html>

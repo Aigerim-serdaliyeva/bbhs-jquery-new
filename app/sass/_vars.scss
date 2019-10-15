@@ -1,18 +1,18 @@
 @import './fonts';
 @import './_mixins/circle';
 
-$default_family: MinionPro, Arial;
-$title_family: MinionPro, Arial;
+$default_family: Phenomena, Arial;
+$title_family: Phenomena, Arial;
 $font_size: 14px;
-$title_color: #000;
-$text_color: #000;
+$title_color: #fff;
+$text_color: #fff;
 
-$accent: #13478f;
+$accent: #39071F;
 
 // Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
 $grid-gutter-width: 30px;
 $grid-columns: 12;
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
-$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px);
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1260px);
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px);
 
 $gutter: $grid-gutter-width;

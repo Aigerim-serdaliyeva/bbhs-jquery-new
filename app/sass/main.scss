@@ -15,11 +15,10 @@
   width: 100%;
   z-index: 98;
   padding: 10px 0;
-  background-color: rgba(#fff, 0.7);
+  background: $accent;
+  border-bottom: 4px solid #fff;
 
   &--scrolled {
-    background-color: rgba(#fff, 1);      
-    border-bottom: 1px solid $accent;
   }
 
   &__content {
@@ -28,39 +27,49 @@
   }
 }
 
+.contact {
+  text-align: center;
+  max-width: 278px;
+  margin-bottom: 450px;
+  &__title {
+    font-size: 48px !important;
+    margin-bottom: 20px;
+  }
+  & > * {
+    font-size: 24px;
+  }
+  p {
+    margin: 0;
+    &:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(5) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
 .footer {
   background-color: $accent;
-  font-size: 16px;
-
-  .logo {
-    margin-right: 100px;
-  }
+  padding: 70px 0 20px;
+  background-image: url('../img/map.png');
+  // background-position: center right;
+  background-position: top right;
+  // background-size: contain;
+  background-size: initial;
+  background-repeat: no-repeat;
+  border-top: 4px solid #fff;
+  &__img {
+    text-align: right;
+  }   
 
   &__content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
+    font-size: 18px;
+    text-align: center;
   }
-
-  &__address {
-    max-width: 165px;
-    margin-right: 40px;
-  }
-
-  &__phone {
-    margin-right: 55px;
-  }
-
-  &__comand {
-    margin-left: 100px;
-
-    a {
-      margin-top: 3px;
-      display: block;
+  &__social {
+    margin-bottom: 30px;
+    img {
+      margin: 0 10px;
     }
-  }   
+  }
 }
 
 .main-menu {    
@@ -80,7 +89,7 @@
     }
 
     &.link a:hover, &.active a {
-      border-bottom: 2px solid $accent;
+
     }
   }
 
@@ -89,7 +98,8 @@
     line-height: 1.5;
     text-decoration: none;
     font-weight: normal;
-    border-bottom: 2px solid transparent;    
+    font-size: 24px;
+    color: #fff;
   }
 }
 
@@ -100,27 +110,367 @@
   background-position: center center;
 
   &-title {
+    font-weight: normal;
     font-size: 36px;
-    font-weight: bold;
-    margin: 0 auto 40px;
     text-align: center;
-
-    .inverse & {
-      color: #fff;
-    }
+    margin-bottom: 20px;
   }
 }
 
 .s {
   &-main {
-    padding-top: 150px;
+    padding: 145px 0;
     background-image: url('../img/main-back.jpg');
+    height: 100vh;
 
-    &-title {
-      font-size: 39px;
-      margin: 0 0 35px 0;
-      text-align: left;
+    &__content {
+      text-align: center;
+    }
+
+    &__title {      
+      font-weight: normal;
+      font-size: 38.3403px;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }    
+  }
+
+  &-line {
+    padding: 62px 0;
+    background: $accent;
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      background: #fff;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-about {
+    position: relative;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      width: 336px;
+      height: 464px;
+      background-image: url('../img/grape-transparent.png');
+      top: 50%;
+      left: 53px;
+      transform: translateY(-45%);
+      z-index: 1;
+    }
+
+    &__content {
+      background: rgba(57, 7, 31, 0.7);
+      width: 50%;
+      position: absolute; 
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    &__block {
+      max-width: 473px;
+      margin: 0 30px 0 auto;
+      padding: 73px 0 53px;
+      text-align: center;
+      z-index: 2;
+      position: relative;    
+    }
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 25px;
+      font-weight: normal;
+    }
+
+    &__text {
+      font-size: 25px;
+      font-weight: normal;
+      line-height: 1.67;
+    }
+  }
+
+  &-gallery {
+    .gallery {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      // height: 100vh;
+      height: 870px;
+      justify-content: center;  
+    }  
+    .thumbs-carousel {
+        max-width: 730px;
+        width: 100%;
+        margin-bottom: 53px;
+        img {
+          border: 4px solid #fff;        
+          cursor: pointer;
+        }
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 800px;
+          height: 4px;
+          background: #fff;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+  }
+
+  &-layout {
+    background: $accent;
+    padding: 125px 0 25px;
+
+    &__text {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .layout {
+      &__title {
+        color: #39071F;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        font-family: Arial, serif;
+        margin-bottom: 40px;
+      }
+
+      &__block {
+        display: flex;
+        align-items: center;
+      }
+
+      &__text {
+        font-size: 24px;
+        color: #39071F;
+        max-width: 295px;
+        margin: 0 120px 40px 0;
+      }
+
+      &__img {
+        text-align: center;
+      }
+    }
+  }
+
+  &-stages {
+    background: $accent;
+
+    .stage {
+      &__date {
+        font-weight: 300;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      &__text {
+        font-weight: 300;
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+  }
+
+  &-advantage {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 336px;
+      height: 464px;
+      background-image: url('../img/grape-transparent.png');
+      top: 50%;
+      right: 53px;
+      transform: translateY(-45%);
+    }
+
+    &__content {
+      background: rgba(57, 7, 31, 0.7);
+      width: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &__block {
+      max-width: 435px;
+      padding: 38px 0;
+      margin: 0 auto 0 30px;
+      z-index: 2;
+      position: relative;    
+      text-align: left;  
+    }
+
+    &__title {
       font-weight: bold;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        font-size: 24px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &-townhouse {
+    background: $accent;
+    padding: 126px 0 0;
+    position: relative;
+    z-index: 1;
+
+    &::before, &::after {            
+      content: "";
+      position: absolute;  
+      width: 385px;
+      height: 532px; 
+      background-image: url('../img/grape-burgundy.png');      
+      z-index: -1;
+    }
+    &::before {
+      top: 30px;
+      left: 80px;
+    }
+    &::after {   
+      bottom: 30px;
+      right: 80px;   
+    }
+
+    .townhouse {      
+
+      &__img {
+        border: 4px solid #fff;
+        position: relative;
+        &--1 {
+          &::before, &::after {            
+            content: "";
+            position: absolute;            
+            background: #fff;
+          }
+          &::before {
+            height: 130px;
+            width: 4px;
+            left: -4px;
+            top: -130px;
+          }
+          &::after {            
+            width: 500px;
+            height: 4px;
+            bottom: -4px;
+            right: -500px;
+          }
+        }
+        &--2 {
+          &::before, &::after {            
+            content: "";
+            position: absolute;            
+            background: #fff;
+          }
+          &::before {
+            width: 500px;
+            height: 4px;
+            top: -4px;
+            left: -500px;
+          }
+        }
+      }
+
+      &__block {
+        padding: 55px 0 50px;
+        &--1 {
+          border-right: 4px solid #fff;
+        }
+        &--2 {
+          border-left: 4px solid #fff;
+        }
+      }
+
+      &__title {
+        font-weight: normal;
+        font-size: 36px;
+        text-align: center;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          list-style: none;
+          font-size: 24px;
+          font-weight: normal;
+          line-height: 1.5;
+          letter-spacing: -0.5px;
+        }
+      }
+
+      &__present {
+        text-align: center;
+        &__title {
+          font-weight: bold;
+          font-size: 22.1803px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &-order {
+    position: relative;
+
+    &__content {
+      background: rgba(57, 7, 31, 0.7);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 0 40px;
+      text-align: center;
+    }
+
+    &__title {
+      font-weight: bold;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    &__block {
+      display: flex;
+      max-width: 800px;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+
+    .order {
+      text-align: center;
+      &__title {
+        margin-top: 17px;
+        font-weight: normal;
+        font-size: 24px;
+      }
     }
   }
 

@@ -42,7 +42,8 @@ gulp.task('libs-css', function () {
     'node_modules/owl.carousel/dist/assets/owl.carousel.min.css',
     'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
     'node_modules/hamburgers/dist/hamburgers.min.css',
-    'node_modules/font-awesome/css/font-awesome.min.css'
+    'node_modules/font-awesome/css/font-awesome.min.css',
+    'node_modules/slick-carousel/slick/slick.css',
   ])
   .pipe(cleancss({level: { 1: { specialComments: 0 } } })) // Опционально, закомментировать при отладке
   .pipe(concat('libs.min.css'))
@@ -67,7 +68,8 @@ gulp.task('libs-js', function () {
    'node_modules/remodal/dist/remodal.min.js',
    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
    'node_modules/owl.carousel/dist/owl.carousel.min.js',
-   'node_modules/jquery.maskedinput/src/jquery.maskedinput.js'
+   'node_modules/jquery.maskedinput/src/jquery.maskedinput.js',
+   'node_modules/slick-carousel/slick/slick.min.js'
   ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify()) // Минимизировать весь js (на выбор)

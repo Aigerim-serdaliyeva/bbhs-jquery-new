@@ -5,7 +5,7 @@ $(document).ready(function () {
   var $html = $("html, body");
   var $header = $(".header");
   var $menu = $(".main-menu");
-  var headerHeight = 99;
+  var headerHeight = 60;
   var $hamburger = $(".hamburger");
 
   // забираем utm из адресной строки и пишем в sessionStorage, чтобы отправить их на сервер при form submit
@@ -19,7 +19,7 @@ $(document).ready(function () {
   }
 
   if ($wnd.width() < 992) {
-    headerHeight = 89;
+    headerHeight = 60;
   }
 
   // jquery.maskedinput для ПК и планшет (мобильном не подключаем)
@@ -157,17 +157,101 @@ $(document).ready(function () {
     }
   });
 
-
-  $(".carousel-certificates").owlCarousel({
-    loop: true,
-    smartSpeed: 500,
-    margin: 30,
-    navText: ['', ''],
-    responsive: {
-      0: { items: 1, mouseDrag: false, dots: true, nav: false },
-      480: { items: 2, mouseDrag: true, dots: false, nav: true },
-    },
+  $(".tab__link").click(function() {
+    var $tab = $(this).closest(".tab");
+    var id = $(this).data("id");
+  
+    $tab.find(".tab__link").removeClass("active");
+    $(this).addClass("active")
+    $tab.find(".tab__content").removeClass("active").filter("[data-tab=" + id + "]").addClass("active");
   });
+
+
+  const setGallery = function () { // Обработчик большой картинки в галерее
+    const src = $('.thumbs-carousel').find('.slick-active').attr('data-img');
+    $('.gallery').css({
+        'background-image': `url('./img/gallery/${src}')`
+    });
+  };
+      
+  $('.thumbs-carousel').on('init', function () { // смена слайда в навигации
+      setGallery();
+  });
+
+  $('.thumbs-carousel').on('afterChange', function () { // смена слайда в навигации
+      setGallery();
+  });
+
+
+  $('.thumbs-carousel').on('click', '.slick-slide', function() { // смена слайда при нажатий
+      const src = $(this).data('img');
+      $('.gallery').css({
+          'background-image': `url('./img/gallery/${src}')`
+      });
+  });
+
+  $('.thumbs-carousel').slick({
+      prevArrow: '<button type="button" class="slick-prev"></button>',
+      nextArrow: '<button type="button" class="slick-next"></button>',
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      touchMove: true,
+      draggable: false,
+      centerPadding: '0px',
+      responsive: [
+          {
+              breakpoint: 992,
+              settings: {
+              slidesToShow: 3,
+              }      
+          },
+          {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2,
+              }      
+          },
+          {
+              breakpoint: 580,
+              settings: {
+                slidesToShow: 1,
+              }      
+          }
+      ]
+  });
+
+
+  $('.stages-carousel').slick({
+    prevArrow: '<button type="button" class="slick-prev"></button>',
+    nextArrow: '<button type="button" class="slick-next"></button>',
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    touchMove: true,
+    draggable: false,
+    centerPadding: '0px',
+    responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+            slidesToShow: 3,
+            }      
+        },
+        {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+            }      
+        },
+        {
+            breakpoint: 580,
+            settings: {
+              slidesToShow: 1,
+            }      
+        }
+    ]
+  })
 
 
 });

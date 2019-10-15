@@ -213,20 +213,23 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   text-decoration: none;
   padding: 11.5px 10px;
-  font-size: 14px;
+  max-width: 278px;
+  width: 100%;
+  font-size: 24px;
   line-height: 1;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
-  background-color:$accent;
-  color: #fff !important;
+  background: #fff;
+  color: #39071f;
   white-space: nowrap;
-  border: 1px solid $accent;
+  border-radius: 12px;
+  border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: transparent;
-    border: 1px solid $accent;
-    color: $accent !important;
+    // background-color: $accent;
+    background: #5C1637;
+    color: #fff;
   }    
 
   &:active {
@@ -369,6 +372,58 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.slick {
+
+  &-list {
+      
+  }
+
+  &-slide {
+      margin: 0 15px;      
+  }
+
+  &-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 70px;
+  height: 70px;      
+  background-repeat: no-repeat !important;
+  background-position: center center !important; 
+  background: #fff;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  z-index: 10;
+  &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url('../img/gallery/arrow-left.png') !important;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 42px;   
+  }
+  }
+
+  &-prev {
+      left: -100px;
+  }
+
+  &-next {
+    right: -100px;
+      &:before {
+        background-image: url('../img/gallery/arrow-right.png') !important;
+      }
+    }
+  }
+
 .owl-carousel {
 	.owl {
     &-stage {
@@ -428,6 +483,47 @@ h1, h2, h3, h4, h5, h6 {
       } 
     }
 	}
+}
+
+.tab {
+  &__links {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    &--min {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__link {
+    cursor: pointer;
+    font-size: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    padding: 5px;
+    user-select: none;
+
+    &:hover {
+      background: #61394c;
+    }
+    
+    &.active {
+      background: #fff;
+      color: #39071F;
+    }
+  }
+  
+  &__content {
+    display: none;
+    background: #fff;
+    padding: 40px 50px 30px 50px;
+    min-height: 100px;
+    
+    &.active {
+      display: block;
+    }
+  }
 }
 
 .remodal {
