@@ -5925,7 +5925,8 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center; }
 
 .s-stages {
-  background: #39071F; }
+  background: #39071F;
+  padding: 150px 0; }
   .s-stages .stage__date {
     font-weight: 300;
     font-size: 30px;

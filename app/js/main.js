@@ -168,7 +168,7 @@ $(document).ready(function () {
 
 
   const setGallery = function () { // Обработчик большой картинки в галерее
-    const src = $('.thumbs-carousel').find('.slick-active').attr('data-img');
+    const src = $('.thumbs-carousel').find('.slick-active.slick-current').attr('data-img');
     $('.gallery').css({
         'background-image': `url('./img/gallery/${src}')`
     });
@@ -181,6 +181,10 @@ $(document).ready(function () {
   $('.thumbs-carousel').on('afterChange', function () { // смена слайда в навигации
       setGallery();
   });
+
+  // $('.thumbs-carousel').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+  //   self.backgroundSrc = this.gallery[nextSlide];
+  // });
 
 
   $('.thumbs-carousel').on('click', '.slick-slide', function() { // смена слайда при нажатий
@@ -195,8 +199,9 @@ $(document).ready(function () {
       nextArrow: '<button type="button" class="slick-next"></button>',
       infinite: true,
       slidesToShow: 3,
-      slidesToScroll: 1,
-      touchMove: true,
+      slidesToScroll: 1,      
+      centerMode: true,
+      // touchMove: true,
       draggable: false,
       centerPadding: '0px',
       responsive: [
