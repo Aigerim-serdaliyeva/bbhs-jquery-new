@@ -6,7 +6,9 @@ $(document).ready(function () {
   var $header = $(".header");
   var $menu = $(".main-menu");
   var headerHeight = 60;
-  var $hamburger = $(".hamburger");
+  var $headerBurger = $(".header-burger");
+  const $burgerMenu = $('.burger-menu');
+  // var $hamburger = $(".hamburger");
 
   // забираем utm из адресной строки и пишем в sessionStorage, чтобы отправить их на сервер при form submit
   var utms = parseGET();
@@ -21,6 +23,42 @@ $(document).ready(function () {
   if ($wnd.width() < 992) {
     headerHeight = 60;
   }
+
+  $('.burger-menu__btn').click(function(e) {
+    e.preventDefault();
+    if ($burgerMenu.hasClass('burger-menu--active')) {
+      closeMenu();
+    } else {
+      showMenu();
+    }
+  });
+
+  $('.burger-menu__overlay').click(function() {
+    closeMenu();
+  })
+
+  $('.burger-menu__close').click( function() {
+    closeMenu();
+  })
+  
+  function showMenu() {
+    $header.addClass('header--opened');
+    $burgerMenu.addClass('burger-menu--active');
+  }
+
+  function closeMenu() {
+    $header.removeClass('header--opened');
+    $burgerMenu.removeClass('burger-menu--active');
+  }
+
+  $('.burger-menu').click( function() {
+    $(this).closest('.header-burger').removeClass('burger-menu--scrolled');
+  })
+
+  $('.work').click( function() {
+    $(this).find('.work__block').toggleClass('flex');
+    $(this).find('.work__img__content').stop();
+  })
 
   // jquery.maskedinput для ПК и планшет (мобильном не подключаем)
   if ($wnd.width() > 479) {
@@ -158,14 +196,21 @@ $(document).ready(function () {
   });
 
   $(".tab__link").click(function() {
+    debugger;
     var $tab = $(this).closest(".tab");
     var id = $(this).data("id");
   
     $tab.find(".tab__link").removeClass("active");
     $(this).addClass("active")
     $tab.find(".tab__content").removeClass("active").filter("[data-tab=" + id + "]").addClass("active");
-  });
 
+    if (id === "tab2" || id === "tab3") {
+      $tab.find(".tab__links--min").addClass('d-none')
+    } else if (id === "tab1") {
+      $tab.find(".tab__links--min").removeClass('d-none');
+      $tab.find(".tab__link--1").addClass("active");
+    }
+  });
 
   const setGallery = function () { // Обработчик большой картинки в галерее
     const src = $('.thumbs-carousel').find('.slick-active.slick-current').attr('data-img');
@@ -230,34 +275,39 @@ $(document).ready(function () {
   $('.stages-carousel').slick({
     prevArrow: '<button type="button" class="slick-prev"></button>',
     nextArrow: '<button type="button" class="slick-next"></button>',
-    infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    touchMove: true,
+    centerMode: true,
     draggable: false,
-    centerPadding: '0px',
+    asNavFor: '.stages-info',
+    centerPadding: "0px", 
     responsive: [
-        {
-            breakpoint: 992,
-            settings: {
-            slidesToShow: 3,
-            }      
-        },
-        {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 2,
-            }      
-        },
-        {
-            breakpoint: 580,
-            settings: {
-              slidesToShow: 1,
-            }      
-        }
+      {
+        breakpoint: 992,
+        settings: {
+        slidesToShow: 3,
+        }      
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        }      
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 1,
+        }      
+      }
     ]
   })
 
+  $('.stages-info').slick({
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,  
+  })
 
 });
 

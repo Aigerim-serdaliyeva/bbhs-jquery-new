@@ -379,13 +379,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &-slide {
-      margin: 0 15px;      
+      // margin: 0 15px;      
   }
 
   &-arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  // top: 50%;
+  // transform: translateY(-50%);
   bottom: 0;
   border-radius: 50%;
   cursor: pointer;
@@ -399,25 +399,27 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   z-index: 10;
   &:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-image: url('../img/gallery/arrow-left.png') !important;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 25px;
-      height: 42px;   
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../img/gallery/arrow-left.png') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 42px;   
   }
   }
 
   &-prev {
-      left: -100px;
+      // left: -100px;
+      left: 0;
   }
 
   &-next {
-    right: -100px;
+    // right: -100px;
+    right: 0;
       &:before {
         background-image: url('../img/gallery/arrow-right.png') !important;
       }
@@ -489,18 +491,15 @@ h1, h2, h3, h4, h5, h6 {
   &__links {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 30px;
-    &--min {
-      margin-bottom: 0;
-    }
   }
   
   &__link {
     cursor: pointer;
     font-size: 30px;
     text-align: center;
-    max-width: 400px;
-    width: 100%;
+    width: 33.33%;
+    // max-width: 400px;
+    // width: 100%;
     padding: 5px;
     user-select: none;
 
@@ -513,12 +512,19 @@ h1, h2, h3, h4, h5, h6 {
       color: #39071F;
     }
   }
+
+  &__contents {
+    .tab__links {
+      width: 33.33%;
+    }
+  }
   
   &__content {
     display: none;
     background: #fff;
     padding: 40px 50px 30px 50px;
     min-height: 100px;
+    margin-top: 30px;
     
     &.active {
       display: block;

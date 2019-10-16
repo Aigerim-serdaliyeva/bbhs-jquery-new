@@ -10,35 +10,39 @@
 
 // ≥992px
 @include media-breakpoint-down(md) {
-  .hamburger {
-    display: block;
-  }    
+  // .hamburger {
+  //   display: block;
+  // }    
+
 
   .header {
     padding: 5px 0;
-  }
-
-  .footer {
-    text-align: center;
-
-    &__content {
-      flex-direction: column;
-
-      & > * {
-          margin: 0 0 20px 0 !important;            
+    border: none;
+    .logo {
+      text-align: center;
+      img {
+        &:first-child {
+          display: none;
+        }
+        &:last-child {
+          display: block;
+        }
       }
     }
+
+    &__phone {
+      display: block;   }
   }
 
-	.main-menu {
+  .main-menu {
+    // display: block;
     display: none;
-    background-color: #fff;
-    position: fixed;
-    top: 89px;
+    top: 70px;
     left: 0;
     right: 0;
     text-align: left;
-    margin-left: 0;
+    // margin-left: 0;
+    margin: 0 auto;
     z-index: 98;
     padding: 10px 0;
 
@@ -46,17 +50,50 @@
 			display: block;
 			height: auto;
       padding: 0;
-      margin: 0;
+      margin: 0 0 60px 0;
+      text-align: center;
 
 			li {
-        margin: 0 0 5px;
+        margin: 0 0 10px;
 
         &:last-child {
           margin: 0;
         }
+        a {
+          color: #fff;
+          // font-size: 18px;
+        }
 			}
 		}
-  }    
+  }  
+
+	// .main-menu {
+  //   display: none;
+  //   background-color: #fff;
+  //   position: fixed;
+  //   top: 89px;
+  //   left: 0;
+  //   right: 0;
+  //   text-align: left;
+  //   margin-left: 0;
+  //   z-index: 98;
+  //   padding: 10px 0;
+
+	// 	ul {
+	// 		display: block;
+	// 		height: auto;
+  //     padding: 0;
+  //     margin: 0;
+
+	// 		li {
+  //       margin: 0 0 5px;
+
+  //       &:last-child {
+  //         margin: 0;
+  //       }
+	// 		}
+	// 	}
+  // }    
 
   .s {
     
@@ -86,16 +123,6 @@
 
     .input-div, .button {
       width: 100%;
-    }
-  }
-
-  .logo {
-    max-width: 200px;
-  }
-
-  .header {
-    .grow {
-      display: block;
     }
   }
 
