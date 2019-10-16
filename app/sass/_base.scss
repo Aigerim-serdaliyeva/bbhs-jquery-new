@@ -398,18 +398,18 @@ h1, h2, h3, h4, h5, h6 {
   border: 0;
   padding: 0;
   z-index: 10;
-  &:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url('../img/gallery/arrow-left.png') !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 25px;
-    height: 42px;   
-  }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url('../img/gallery/arrow-left.png') !important;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 42px;   
+    }
   }
 
   &-prev {

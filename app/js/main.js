@@ -7,8 +7,7 @@ $(document).ready(function () {
   var $menu = $(".main-menu");
   var headerHeight = 60;
   var $headerBurger = $(".header-burger");
-  const $burgerMenu = $('.burger-menu');
-  // var $hamburger = $(".hamburger");
+  const $headerMenu = $('.header__menu');
 
   // забираем utm из адресной строки и пишем в sessionStorage, чтобы отправить их на сервер при form submit
   var utms = parseGET();
@@ -24,9 +23,9 @@ $(document).ready(function () {
     headerHeight = 60;
   }
 
-  $('.burger-menu__btn').click(function(e) {
+  $('.header__menu').click(function(e) {
     e.preventDefault();
-    if ($burgerMenu.hasClass('burger-menu--active')) {
+    if ($headerMenu.hasClass('header__menu--active')) {
       closeMenu();
     } else {
       showMenu();
@@ -43,12 +42,12 @@ $(document).ready(function () {
   
   function showMenu() {
     $header.addClass('header--opened');
-    $burgerMenu.addClass('burger-menu--active');
+    $headerMenu.addClass('header__menu--active');
   }
 
   function closeMenu() {
     $header.removeClass('header--opened');
-    $burgerMenu.removeClass('burger-menu--active');
+    $headerMenu.removeClass('header__menu--active');
   }
 
   $('.burger-menu').click( function() {
@@ -115,11 +114,6 @@ $(document).ready(function () {
       var top = $($href).offset().top - headerHeight;
       $html.stop().animate({ scrollTop: top }, "slow", "swing");
     }
-
-    // как только доходим до блока, скрываем меню
-    if ($wnd.width() <= 991) {
-      toggleHamburger();
-    }
   });
 
   $top.click(function () {
@@ -134,23 +128,6 @@ $(document).ready(function () {
       checkInput($this);
     }
   });
-
-  $hamburger.click(function () {
-    toggleHamburger();
-    return false;
-  });
-
-  // показывает и скрывает меню, а также меняет состояние гамбургера
-  function toggleHamburger() {
-    $this = $hamburger;
-    if (!$this.hasClass("is-active")) {
-      $this.addClass('is-active');
-      $menu.slideDown('700');
-    } else {
-      $this.removeClass('is-active');
-      $menu.slideUp('700');
-    }
-  }
 
   // при закрытии модального окна удаляем error клас формы в модальном окне
   $(document).on('closing', '.remodal', function (e) {
@@ -250,24 +227,24 @@ $(document).ready(function () {
       draggable: false,
       centerPadding: '0px',
       responsive: [
-          {
-              breakpoint: 992,
-              settings: {
-              slidesToShow: 3,
-              }      
-          },
-          {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 2,
-              }      
-          },
-          {
-              breakpoint: 580,
-              settings: {
-                slidesToShow: 1,
-              }      
-          }
+          // {
+          //     breakpoint: 992,
+          //     settings: {
+          //     slidesToShow: 3,
+          //     }      
+          // },
+          // {
+          //     breakpoint: 768,
+          //     settings: {
+          //       slidesToShow: 2,
+          //     }      
+          // },
+          // {
+          //     breakpoint: 580,
+          //     settings: {
+          //       slidesToShow: 1,
+          //     }      
+          // }
       ]
   });
 
