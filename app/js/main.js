@@ -1,7 +1,7 @@
-import Vue from "vue";
-new Vue({
-  render: h => h(App)
-}).$mount("#main-page");
+// import Vue from "vue";
+// new Vue({
+//   render: h => h(App)
+// }).$mount("#main-page");
 
 $(document).ready(function () {
 
@@ -125,6 +125,28 @@ $(document).ready(function () {
     $html.stop().animate({ scrollTop: 0 }, 'slow', 'swing');
   });
 
+  $('.open-map').click(function() {
+    $('.map').css('display', 'flex');
+  });
+
+  $('.close-map').click(function() {
+    $('.map').css('display', 'none');
+  });
+
+  new Vue({
+    el: '#townhouse',
+    data: {
+
+    },
+    methods: {
+      openDescr: function(e) {
+        console.log('openDescr', e);
+      },
+      closeDescr: function(e) {
+        console.log('closeDescr', e);
+      }
+    }
+  })
 
   // при изменении объязателных полей проверяем можно ли удалять класс error
   $("input:required, textarea:required").keyup(function () {

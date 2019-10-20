@@ -553,3 +553,28 @@ h1, h2, h3, h4, h5, h6 {
     padding: 60px 25px;
   }
 }
+
+.map {
+  // @include sized(100%, 100%);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; left: 0;
+  justify-content: center;
+  align-items: center; 
+  // @include flex(center,center);    
+  flex-direction: column;    
+  &__overlay {
+      position: absolute; top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      // @include sized(100%,100%);
+      z-index: 1;
+      background: rgba(0,0,0,0.6);
+  }  
+  &__wrap {
+      position: relative;
+      z-index: 2;
+      width: 50%;        
+  }    
+}

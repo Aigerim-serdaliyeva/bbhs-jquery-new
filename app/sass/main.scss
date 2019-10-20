@@ -718,5 +718,101 @@
   }
 }
 
+.home-townhouse {
+  position: relative;
+  &__wrap {
+      position: relative;
+  }
+  &__layout {
+      img {
+          display: block;
+          margin: auto;
+      }
+  }
+  &__content {
+      position: absolute;
+      top: rem(220);
+      left: 0;
+      width: 100%;
+  }
+  &__text {
+      width: 100%;
+      &:first-child {
+          justify-content: flex-end;
+          align-items: center;
+
+          // @include flex(flex-end, center);
+          article {
+              margin-right: rem(20);
+          }
+      }
+      &:last-child {
+          justify-content: flex-start;
+          align-items: center;
+          // @include flex(flex-start, center);
+          position: relative;
+          top: rem(130);
+          text-align: right;
+          article {
+              margin-left: rem(15);
+          }
+      }
+      article {
+          h2 {
+              // @include fonted(rem(48), rem(48));
+              margin-bottom: rem(9);
+          }
+          p {
+              font-size: rem(24);
+          }
+      }
+  }
+}
+
+@media (min-width: 768px) {
+  .home-townhouse {
+      &__descr {
+          position: absolute;
+          pointer-events: none;
+          top: 0;
+          left: 0;
+          background: #39071f;
+          border: 3px solid #ffffff;
+          padding: rem(31) rem(37);
+          font-size: rem(24);
+          text-transform: uppercase;
+      }
+  }
+}
+
+.townhouse-actions {
+  position: absolute;
+  top: rem(263);
+  left: rem(26);
+  right: 0;
+  margin: auto;
+  width: 301rem;
+  height: 618rem;
+}
+
+@media (min-width: 768px) {
+  .townhouse-actions {
+      svg {
+          path {
+              fill: transparent;
+          }
+      }
+      .sold:hover {
+          fill: #5c1637;
+      }
+      .insold:hover {
+          fill: #80d93a;
+      }
+      .reserve:hover {
+          fill: #d9a33a;
+      }
+  }
+}
+
 
 @import './_media';
