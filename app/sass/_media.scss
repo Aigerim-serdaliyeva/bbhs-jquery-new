@@ -3,9 +3,44 @@
 
 /*==========  Desktop First  ==========*/
 
+@media (max-width: 1400px) {
+  .s {
+    &-line {
+      padding: 25px 0;
+    }
+    &-main {
+      
+    }
+    &-about {
+      &__block {
+        max-width: 440px;
+      }
+      &__title {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      &__text {
+        font-size: 22px;
+        line-height: 1.2;
+      }
+    }
+    &-advantage {
+      &__title {
+        font-size: 36px;
+      }
+      ul {
+        li {
+          font-size: 22px;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+}
+
 // ≥1200px
 @include media-breakpoint-down(lg) {
-	
+
 }
 
 // ≥992px
@@ -22,9 +57,8 @@
       }
     }
     &-next {
-        &:before {
-          background-image: url('../img/gallery/arrow-right-min.png') !important;
-        }
+      &:before {
+        background-image: url('../img/gallery/arrow-right-min.png') !important;
       }
     }
   }
@@ -145,7 +179,6 @@
   }  
 
   .s {
-
     &-line {
       padding: 15px 0;
       border-top: 2px solid #fff;
@@ -293,7 +326,7 @@
       }
     }
   }
-
+}
 
 // ≥768px
 @include media-breakpoint-down(sm) {  

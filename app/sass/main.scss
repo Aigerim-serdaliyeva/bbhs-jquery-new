@@ -1,6 +1,5 @@
 @import './base';
 
-
 .page-wrapper {
   overflow: hidden;
   min-height: 100vh;
@@ -8,7 +7,6 @@
   display: flex;
   flex-direction: column;
 }
-
 
 .header {
   position: fixed;
@@ -88,7 +86,7 @@
 .contact {
   text-align: center;
   max-width: 278px;
-  margin-bottom: 450px;
+  padding-bottom: 400px;
   &__title {
     font-size: 48px !important;
     margin-bottom: 20px;
@@ -105,19 +103,14 @@
 }
 
 .footer {
-  background-color: $accent;
   padding: 70px 0 20px;
-  background-image: url('../img/map.png');
-  // background-position: center right;
-  background-position: top right;
-  // background-size: contain;
-  background-size: initial;
+  background-image: url('../img/footer-back.jpg');
+  background-position: top center;
   background-repeat: no-repeat;
   border-top: 4px solid #fff;
   &__img {
     text-align: right;
   }   
-
   &__content {
     font-size: 18px;
     text-align: center;    

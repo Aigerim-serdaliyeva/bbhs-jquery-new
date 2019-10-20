@@ -1,3 +1,8 @@
+import Vue from "vue";
+new Vue({
+  render: h => h(App)
+}).$mount("#main-page");
+
 $(document).ready(function () {
 
   var $wnd = $(window);
